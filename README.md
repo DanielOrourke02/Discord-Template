@@ -1,14 +1,6 @@
-<h1 align="center">Hi 👋, I'm Daniel Jones</h1>
-<h3 align="center">🚀 A Passionate Python and C++ Developer 🚀</h3>
-<h3 align="center">Welcome To My GitHub Profile! 👋</h3>
-
-<p align="center">
-  <a href="https://github.com/DanielJones02/Active-Projects">📁 Active Projects</a>
-</p>
-
 <h1 align="center">
   <br>
-  Echo Bot v3
+  Discord Bot Template
   <br>
   
 </h1>
