@@ -63,3 +63,5 @@ python main.py
 ```
 python3 main.py
 ```
+
+### If this helped you out, please consider staring this project!
