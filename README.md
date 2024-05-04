@@ -44,21 +44,41 @@ git clone https://github.com/DanielJones02/Discord-Template
 cd Discord-Template
 ```
 
-- Now install the requirements.
+- Now open the cloned directory in windows explorer.
+
+- Simply double click `install.bat` and the requirements will be installed.
+
+- Now Add your bot token and your bots invite link to `config.json` (get them from [here](https://discord.com/developers/applications))
+
+- After adding your values to config.json. Simply double click run.bat and your bot should start.
+
+## For linux
+
+- In the terminal, run the following commands.
 
 ```
-pip install -r requirements.txt
+git clone https://github.com/DanielJones02/Discord-Template
+cd Discord-Template
 ```
 
-- Now Add your bots token to `config.json` (get your bot token from [here](https://discord.com/developers/applications))
-
-- Now test if the bot is working
+- Install requirements
 
 ```
-python main.py
+chmod +x install.bat
+./install.bat
 ```
 
-#### If you're on linux, run this command to run the bot instead
+- Add your bot token and your bots invite link to `config.json` (get them from [here](https://discord.com/developers/applications))
+    - Do this by using `nano` or by using a text editor
+
+- Now run the bot.
+
+```
+chmod +x run.bat
+./run.bat
+```
+
+OR
 
 ```
 python3 main.py
