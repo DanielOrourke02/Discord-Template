@@ -35,6 +35,21 @@
 - [Git](https://git-scm.com/downloads)
 - Windows Or Linux
 
+## Features
+
+- Slash commands
+- Help, ping, invite and button command
+
+### More details
+
+- `/help` - Sends an embeded message of the list of commands.
+
+- `/ping` - Pings the bot and sends back the latency.
+
+- `/invite` - Responds with an invite to add the bot to a server.
+
+- `/button` - Sends back an interactive button. (disord.ui)
+
 ## 🚀 Getting Started
 
 - In the terminal, run the following commands.
