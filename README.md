@@ -50,7 +50,7 @@
 
 - `/button` - Sends back an interactive button. (disord.ui)
 
-## Looking for a more complex bot?
+# Looking for an all in one bot?
 
 Check out my all in one bot! Includes a very sophisticated economy game and much more! [CLICK HERE](https://github.com/DanielJones02/Echo)
 
