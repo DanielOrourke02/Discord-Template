@@ -103,4 +103,12 @@ OR
 python3 main.py
 ```
 
+<h2 align="center">
+  <br>
+  Connect with me
+  <br>
+</h2>
+
+<p align="center">Hire Me: https://discord.gg/kNWkT8xWg6 Or DM ME: mal023</p>
+
 ### If this helped you out, please consider staring this project!
