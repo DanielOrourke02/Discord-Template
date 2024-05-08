@@ -5,7 +5,7 @@
   
 </h1>
 
-<p align="center">Just a Discord slash command based discord bot.</p>
+<p align="center">Just a Templat for a basic discord bot that uses slash commands.</p>
 
 <br>
 
