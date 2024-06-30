@@ -5,7 +5,7 @@
   
 </h1>
 
-<p align="center">Just a Template for a basic discord bot that uses slash commands.</p>
+<p align="center">A Template for a basic discord bot that uses slash commands.</p>
 
 <br>
 
