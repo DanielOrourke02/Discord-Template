@@ -52,14 +52,14 @@
 
 # Looking for an all in one bot?
 
-Check out my all in one bot! Includes a very sophisticated economy game and much more! [CLICK HERE](https://github.com/DanielJones02/Echo)
+Check out my all in one bot! Includes a very sophisticated economy game and much more! [CLICK HERE](https://github.com/DanielOrourke02/Echo)
 
 ## 🚀 Getting Started
 
 - In the terminal, run the following commands.
 
 ```
-git clone https://github.com/DanielJones02/Discord-Template
+git clone https://github.com/DanielOrourke02/Discord-Template
 cd Discord-Template
 ```
 
@@ -76,7 +76,7 @@ cd Discord-Template
 - In the terminal, run the following commands.
 
 ```
-git clone https://github.com/DanielJones02/Discord-Template
+git clone https://github.com/DanielOrourke02/Discord-Template
 cd Discord-Template
 ```
 
