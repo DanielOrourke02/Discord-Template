@@ -5,12 +5,21 @@ import discord
 import asyncio
 import json
 
-bot = discord.Bot(intents=discord.Intents.all())
 
-# just a variable for formatting
-t = f"{Fore.LIGHTYELLOW_EX}{ctime()}{Fore.RESET}"
+# For guidance: https://guide.pycord.dev/
+
+
+# discord.Bot() is for application commands
+# commands.Bot() is for prefix commands
+# bridge.Bot() is for both application and prefix commands
+bot = discord.Bot(intents=discord.Intents.default())
+
+# Cool variable for styling etc
+t = f"{Fore.LIGHTYELLOW_EX}{ctime()}{Fore.RESET}" 
 
 # --------------------LOAD THE CONFIG--------------------
+
+# probably best if you use a .env but I prefer to use json
 
 with open('config.json', 'r') as file:
     config = json.load(file)
@@ -21,6 +30,7 @@ bot_invite = config["BOT_INVITE"]
 
 # --------------------------------------------------------
 
+# runs when the bot is deployed/logged in
 @bot.event
 async def on_ready():
     print(f"{t}{Fore.LIGHTBLUE_EX} | Ready and online - {bot.user.display_name}\n{Fore.RESET}")
@@ -28,15 +38,18 @@ async def on_ready():
     try:
         guild_count = 0
         for guild in bot.guilds:
-            print(f"{Fore.RED}- {guild.id} (name: {guild.name})\n{Fore.RESET}")
-            guild_count += 1
+            print(f"{Fore.RED}- {guild.id} (name: {guild.name})\n{Fore.RESET}") # output guild name
+            guild_count += 1 # increment
+        
+        # output num of guilds bot is in
         print(f"{t}{Fore.LIGHTBLUE_EX} | {bot.user.display_name} is in {guild_count} guilds.\n{Fore.RESET}")
 
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"/help"))
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"/help")) # presence
 
     except Exception as e:
         print(e)
 
+# tip: 'ephemeral=True' means ONLY VISIBLE by the author (user who ran the command)
 
 @bot.slash_command(name="help", description="Lists all commands")
 @commands.cooldown(1, 3, commands.BucketType.user) # 3 second cooldown 
@@ -60,7 +73,7 @@ async def ping(ctx: discord.ApplicationContext):
     embed = discord.Embed(
         title="Pong!",
         description="Pong! {0}".format(round(bot.latency, 1)),
-        color=discord.Color.green()
+        color=discord.Color.blurple()
     )
 
     await ctx.respond(embed=embed, ephemeral=True)
@@ -71,13 +84,14 @@ async def ping(ctx: discord.ApplicationContext):
 async def invite(ctx: discord.ApplicationContext):
     embed = discord.Embed(
         title="Add me!!",
-        description=f"[Add me]({bot_invite}) to your server!",
-        color=discord.Color.green()
+        description=f"[Add me]({bot_invite}) to your server!", # [here](google.com) shows as a hyperlink
+        color=discord.Color.blurple()
     )
 
     await ctx.respond(embed=embed, ephemeral=True)
 
 
+# runs of button click (thats why its a 'callback')
 async def ticket_button_callback(ctx):
     await ctx.respond(f"Thanks for clicking me!", ephemeral=True)
 
@@ -87,19 +101,19 @@ async def ticket_button_callback(ctx):
 async def button_command(ctx: discord.ApplicationContext):  # Corrected parameter name
     try:
         view = discord.ui.View()
-        button = discord.ui.Button(label="Create Ticket", style=discord.ButtonStyle.green)
+        button = discord.ui.Button(label="Create Ticket", style=discord.ButtonStyle.green) # create button
 
-        button.callback = ticket_button_callback(ctx)
-        view.add_item(button)
+        button.callback = ticket_button_callback(ctx) # when button is clicked run this func
+        view.add_item(button) # add button to the view
 
         # Create an embed
         embed = discord.Embed(
             title="Example Button",
             description="Here is an interactive button!",
-            color=discord.Color.green()
+            color=discord.Color.blurple()
         )
 
-        # Send a message with the button and attach the view
+        # Send a message with the view attached to it (includes the button)
         await ctx.respond(embed=embed, view=view)
     except Exception as e:
         print(e)
