@@ -2,7 +2,6 @@ from discord.ext import commands, pages
 from colorama import Fore
 from time import ctime
 import discord
-import asyncio
 import json
 
 
