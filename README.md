@@ -45,8 +45,6 @@
 
 - `/ping` - Pings the bot and sends back the latency.
 
-- `/invite` - Responds with an invite to add the bot to a server.
-
 - `/button` - Sends back an interactive button. (disord.ui)
 
 # Looking for an all in one bot?
@@ -55,48 +53,43 @@ Check out my all in one bot! Includes a very sophisticated economy game and much
 
 ## 🚀 Getting Started
 
-- In the terminal, run the following commands.
-
-```
-git clone https://github.com/DanielOrourke02/Discord-Template
-cd Discord-Template
-```
-
-- Now open the cloned directory in windows explorer.
-
-- Simply double click `install.bat` and the requirements will be installed.
-
-- Now Add your bot token and your bots invite link to `config.json` (get them from [here](https://discord.com/developers/applications))
-
-- After adding your values to config.json. Simply double click run.bat and your bot should start.
-
-## For linux
+### For Windows
 
 - In the terminal, run the following commands.
 
 ```
 git clone https://github.com/DanielOrourke02/Discord-Template
 cd Discord-Template
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-- Install requirements
+- Now Add your bots token to the config (get them from [here](https://discord.com/developers/applications))
 
+- After adding your bots token simply run 
 ```
-chmod +x install.bat
-./install.bat
-```
-
-- Add your bot token and your bots invite link to `config.json` (get them from [here](https://discord.com/developers/applications))
-    - Do this by using `nano` or by using a text editor
-
-- Now run the bot.
-
-```
-chmod +x run.bat
-./run.bat
+python main.py
 ```
 
-OR
+### For linux
+
+- In the terminal, run the following commands.
+
+```
+git clone https://github.com/DanielOrourke02/Discord-Template
+cd Discord-Template
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+- Now add your bots token, get it from [here](https://discord.com/developers/applications),  to the config file 
+```
+nano config.json`
+`` 
+
+- Now start your bot. 
 
 ```
 python3 main.py

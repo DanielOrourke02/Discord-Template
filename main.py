@@ -25,7 +25,6 @@ with open('config.json', 'r') as file:
 
 # Accessing individual values from the config
 bot_token = config["BOT_TOKEN"]
-bot_invite = config["BOT_INVITE"]
 
 # --------------------------------------------------------
 
@@ -36,7 +35,7 @@ async def on_ready():
 
     try:
         guild_count = 0
-        for guild in bot.guilds:
+        for guild in bot.guilds: # loops for every guild the bot is in
             print(f"{Fore.RED}- {guild.id} (name: {guild.name})\n{Fore.RESET}") # output guild name
             guild_count += 1 # increment
         
@@ -48,7 +47,7 @@ async def on_ready():
     except Exception as e:
         print(e)
 
-# tip: 'ephemeral=True' means ONLY VISIBLE by the author (user who ran the command)
+# tip: 'ephemeral=True' means the response is ONLY VISIBLE to the author (user who ran the command)
 
 @bot.slash_command(name="help", description="Lists all commands")
 @commands.cooldown(1, 3, commands.BucketType.user) # 3 second cooldown 
@@ -63,7 +62,7 @@ async def help_command(ctx: discord.ApplicationContext):
         ) for chunk in chunks
     ]
     paginator = pages.Paginator(pages=pages_list, loop_pages=True, timeout=30)
-    await paginator.respond(ctx.interaction, ephemeral=False)
+    await paginator.respond(ctx.interaction, ephemeral=False) # lists all commands dynamically (and uses Paginator to make the embed)
 
 
 @bot.slash_command(name="ping", description="Displays bot's latency")
@@ -78,31 +77,19 @@ async def ping(ctx: discord.ApplicationContext):
     await ctx.respond(embed=embed, ephemeral=True)
 
 
-@bot.slash_command(name="invite")
-@commands.cooldown(1, 3, commands.BucketType.user)
-async def invite(ctx: discord.ApplicationContext):
-    embed = discord.Embed(
-        title="Add me!!",
-        description=f"[Add me]({bot_invite}) to your server!", # [here](google.com) shows as a hyperlink
-        color=discord.Color.blurple()
-    )
-
-    await ctx.respond(embed=embed, ephemeral=True)
-
-
 # runs of button click (thats why its a 'callback')
-async def ticket_button_callback(ctx):
+async def button_callback(ctx):
     await ctx.respond(f"Thanks for clicking me!", ephemeral=True)
 
 
 @bot.slash_command(name="button", description="Create an example button")
 @commands.cooldown(1, 3, commands.BucketType.user)
-async def button_command(ctx: discord.ApplicationContext):  # Corrected parameter name
+async def button_command(ctx: discord.ApplicationContext):
     try:
         view = discord.ui.View()
         button = discord.ui.Button(label="Create Ticket", style=discord.ButtonStyle.green) # create button
 
-        button.callback = ticket_button_callback(ctx) # when button is clicked run this func
+        button.callback = button_callback(ctx) # when button is clicked run this func
         view.add_item(button) # add button to the view
 
         # Create an embed
